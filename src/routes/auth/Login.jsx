@@ -14,6 +14,8 @@ const Login = () => {
   const navigate = useNavigate();
   const { login } = useContext(UserContext);
 
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -22,15 +24,15 @@ const Login = () => {
     try {
       const res = await AdminLoginService(formData);
       console.log(res);
-      const user = res.data.user;
+      const user = res.data;
       const token = res.data.token;
 
       // Admin-only check
-      if (user.role !== "admin") {
-        setError("Access denied. Only admins can login.");
-        setLoading(false);
-        return;
-      }
+      // if (user.role !== "vendor") {
+      //   setError("Access denied. Only admins can login.");
+      //   setLoading(false);
+      //   return;
+      // }
 
       setToken(token);
       login(user);

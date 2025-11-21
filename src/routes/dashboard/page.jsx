@@ -8,6 +8,7 @@ import {
   TrendingUp,
   Users,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 const DashboardPage = () => {
   return (
     <div className="flex flex-col gap-y-4">
